@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +24,9 @@ public class Exam05Controller {
 	
 	@RequestMapping("/result")
 	public String findByName(String name, Model model) {
-		model.addAttribute("name", repository.findByName(name));
+		List<String> nameList = repository.findByName(name).stream().map(s -> s.getName())
+                .collect(Collectors.toList());
+		model.addAttribute("names", nameList);
 		return "exam05-result";
 	}
 
