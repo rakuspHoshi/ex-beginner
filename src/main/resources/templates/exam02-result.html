@@ -8,11 +8,14 @@
 </head>
 <body>
 
-	<form action="exam02-result.html" th:action="@{/exam02/result}" method="post">
-	数字を入れてください
-		<input type="text" name="num1" th:field="*{num1}">＋<input type="text" name="num2" th:field="*{num2}">＝
-		<button>足し算をする</button>
-	</form>
+	<h1>足し算結果画面</h1>
+	<p>
+	<span th:text="${session.num1}"></span>+
+	<span th:text="${session.num2}"></span>=
+	<span th:text="${session.num3}"></span>
+	</p>
+	<a href="exam02-result2.html" th:href="@{/exam02/result2}">次へ</a>
+
 
 </body>
 </html>
